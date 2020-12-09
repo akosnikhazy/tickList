@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>tickList Example</title>
+	<script src="tickList.min.js"></script>
+	
+	<style>
+		body{
+			font-family: arial;
+		}
+		
+		h2{
+			font-family: Georgian
+		}
+		
+	   /* 
+		* for ease of the example I put this on all labels here 
+		* you can use these on your own class like on the defult
+		* tickList class, so other labes are not affected.
+		* Also you can design it as you wish.
+		*/
+		label{
+			display:block;
+			padding: 6px;
+			width: 200px;
+			border: 1px solid #ccc;
+			-webkit-border-radius: 3px 3px 3px 3px;
+			border-radius: 3px 3px 3px 3px;
+			cursor:pointer;
+		
+		}
+		
+		/* 
+		 * These two are coming from the js class, so you should 
+		 * use these class names to show if something is ticked
+		 * or not.
+		 */
+		.tickListDone{
+			background: #116611;
+			color: #efefef;
+		
+		}
+		
+		.tickListNotDone{
+			background: #661111;
+			color: #efefef;
+		}
+	</style>
+	<script>
+		// you want to do this when everything is loaded. 
+		// if you want to lose this put the
+		// <script src="tickList.js"> line to the bottom
+		// of the file
+		document.addEventListener("DOMContentLoaded", (event) => {
+			
+			// DEFAULT settings.
+			// cookies are on
+			// cookies expire in 10 days
+			// cookies are named tickCookie1 tickCookie2 etc
+			// it grabs the tickList class
+			new tickList(); 
+			
+			// CUSTOM settings
+			// cookies are on
+			// cookies expire in 10 days
+			// cookies are named custom1 custom 2 etc
+			// it grabs the custom class
+			new tickList({
+					cookies:   true,	// save decisions in cookies
+					cookieExp: 10,  	// for this much time (in days)
+					cookieName:"custom",// if you do not define this, it will be tickList
+					className: "custom" // if you do not define this, it will be tickList
+			}); 
+							
+			// you can create as many lists on one page as many you want
+			// just set them up with different class and cookie names as
+			// seen above.
+		});		
+	</script>
+	
+  </head>
+  <body>
+	<h2>Works out of the box</h2>
+	<p>Just use "new tickList();" Try it! Pick something and refresh! <br>
+	(cookies will not work if you this file sits on your computer and not on a server)</p>
+    <label class="tickList"><input name="" type="checkbox">Eat breakfast</label>
+    <label class="tickList"><input name="" type="checkbox"  checked>Go to work</label>
+    <label class="tickList"><input name="" type="checkbox">Work</label>
+    <label class="tickList"><input name="" type="checkbox">Go home</label>
+	
+	<hr>
+	
+    <h2>Leaves other checkboxes alone</h2>
+	<label name=""><input type="checkbox">Other non todo list checkbox</label>
+	<hr>
+	
+	<h2>Supports several to do lists on one page with their own set of cookies</h2>
+	<p>Just use new tickList(true,10,"custom","custom")</p>
+	<label class="custom"><input name="" type="checkbox">Have fun</label>
+    <label class="custom"><input name="" type="checkbox">Drink Water</label>
+    <label class="custom"><input name="" type="checkbox">Play videogames</label>
+    <label class="custom"><input name="" type="checkbox">Eat Junkfood</label>
+    <label class="custom"><input name="" type="checkbox">Sleep</label>
+	
+	<h2>See source of this file</h2>
+	<p>
+		So you get how to use it
+	</p>
+  </body>
+</html>
