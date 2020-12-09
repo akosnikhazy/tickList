@@ -4,10 +4,10 @@ Small JavaScript todo list solution with cookie support
 This is a very small JavaScript todo list solution. 
 
 # How to use
-Just put a <script> tag with the tickList.min.js file somewhere
+Just put a ```<script>``` tag with the tickList.min.js file somewhere
 
 Basically your checkboxes should look like this:
-<label class="tickList"><input type="checkbox"> Your text</label>
+```<label class="tickList"><input type="checkbox"> Your text</label>```
 
 Then you do a new tickList(); and it instantly hijacks your labeled checkboxes.
 
